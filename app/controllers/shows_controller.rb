@@ -7,7 +7,7 @@ class ShowsController < ApplicationController
 
   def create
     show = Show.create(show_params)
-    render :json => show
+    render :json => show, status: :created
   end
 
 
