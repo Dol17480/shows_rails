@@ -1,8 +1,10 @@
 class ShowsController < ApplicationController
 
+  before_action :authenticate_user!
+
   def index
-    @shows = Show.all
-    render :json => @shows
+    shows = current_user.favourites
+    render json: shows
   end
 
   def create
